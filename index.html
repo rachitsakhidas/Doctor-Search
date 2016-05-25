@@ -1,0 +1,1089 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Doctor's Admin Panel</title>
+        <meta name="description" content="">
+        
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- MetisMenu CSS -->
+        <link href="css/vendor/metisMenu.min.css" rel="stylesheet">
+
+        <!-- Timeline CSS -->
+        <link href="css/vendor/timeline.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="css/vendor/sb-admin-2.css" rel="stylesheet">
+
+        <!-- Morris Charts CSS -->
+        <link href="css/vendor/morris.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="css/vendor/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div id="wrapper">
+            <!-- Navigation -->
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+
+                <div class="row" style="margin-top: 8px;margin-right: 0px;margin-left: 0px;">
+                
+                    <div class="navbar-header col-lg-4 col-md-6">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="display: block;">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html">Appointment Details</a>
+                    </div>
+                    <!-- /.navbar-header -->
+
+                    <div class="input-group custom-search-form navbar-left col-lg-4 col-md-6" style="padding-left: 15px;padding-right: 15px;">
+                        <input type="text" class="form-control" placeholder="Search...">
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">
+                            <i class="fa fa-search"></i>
+                          </button>
+                        </span>
+                    </div>
+
+                    <ul class="nav navbar-top-links navbar-right" style="padding-right: 0px;margin-right: 15px;">
+                        <!-- /.dropdown -->
+                        <li class="dropdown">
+                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                                <i class="fa fa-bell" style="font-size: 18px;"></i>  <span class="label label-primary">8</span>
+                            </a>
+                        </li>
+                        <!-- /.dropdown -->
+                        <li class="dropdown" style="margin-right: 0px;">
+                            <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                                <img class="nav-user-photo" src="http://responsiweb.com/themes/preview/ace/1.3.5/dist/avatars/user.jpg" alt="Jason's Photo" />
+                                <span class="user-info">
+                                    Rachit Sakhidas
+                                </span>
+
+                                <i class="ace-icon fa fa-caret-down"></i>
+                            </a>
+                            <!-- /.dropdown-user -->
+                        </li>
+                        <!-- /.dropdown -->
+                    </ul>
+
+                </div>
+                <!-- /.navbar-top-links -->
+
+                <!-- /.navbar-static-side -->
+            </nav>
+            <!-- Navigation -->
+
+
+            <div id="page-wrapper" style="margin: 0px;padding: 0px;">
+                <div class="row details-header-view">
+                    
+                        <div class="col-lg-4 col-md-6">
+                            <div class="dropdown clearfix col-md-3" style="padding: 0px;"> 
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> 
+                                    Current Week <span class="caret"></span> 
+                                </button> 
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu4"> 
+                                    <li>
+                                        <div class="input-daterange input-group" id="datepicker">
+                                            <input type="text" class="input-sm form-control" name="start" />
+                                            <span class="input-group-addon">to</span>
+                                            <input type="text" class="input-sm form-control" name="end" />
+                                        </div>
+                                    </li> 
+                                </ul> 
+                            </div>
+                            <div class="input-group custom-search-form navbar-left col-md-8" style="padding: 0px;">
+                                <input type="text" class="form-control" placeholder="Search Appointment Details...">
+                                <span class="input-group-btn">
+                                  <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                  </button>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- /.navbar-header -->
+
+                        <div class="col-lg-4 col-md-6 text-center">
+                            <div class="btn-group" role="group" aria-label="...">
+                              <button type="button" class="btn btn-default active">Thumb View</button>
+                              <button type="button" class="btn btn-default">Timeline View</button>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-4 col-md-6 text-right">
+                            <div class="btn-group" role="group" aria-label="...">
+                              <button type="button" class="btn btn-default active">All</button>
+                              <button type="button" class="btn btn-default">High</button>
+                              <button type="button" class="btn btn-default">Face-Face</button>
+                            </div>
+                            <ul class="pager pull-left"> 
+                                <li><a href="#">102 Book</a></li> 
+                                <li><a href="#">98 Attend</a></li> 
+                                <li><a href="#">50 Paid</a></li> 
+                            </ul>
+                        </div>
+
+                    
+                </div>
+
+                <div class="row details-view hide">
+                    
+                    <div class="col-lg-3" style="padding: 0px;">
+                        <div class="grid-item col-sm-6 col-md-2"> 
+                            <div class="grid-inner">
+                                <div class="patient-image-wrapper">
+                                  <img class="patient-image" src="img/user1.jpg">
+                                </div>
+                                <div class="event patient-data"> 
+                                    <span class="patient-details name">Josh Tetrick</span> 
+                                    <span class="patient-details contact-no">+91 96016 96833</span>
+                                    <span class="patient-details appointment-date-time">30 March 2016: 10:23 AM</span>  
+                                    <div class="text-center">
+                                        <div class="btn-group" role="group" aria-label="...">
+                                          <button type="button" class="btn btn-default">Approve</button>
+                                          <button type="button" class="btn btn-default">Reject</button>
+                                          <button type="button" class="btn btn-default">Postpone</button>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-item col-sm-6 col-md-2"> 
+                            <div class="grid-inner">
+                                <div class="patient-image-wrapper">
+                                  <img class="patient-image" src="img/user2.jpg">
+                                </div>
+                                <div class="event patient-data"> 
+                                    <span class="patient-details name">Brynne Herbert</span> 
+                                    <span class="patient-details contact-no">+91 96016 96833</span>
+                                    <span class="patient-details appointment-date-time">30 March 2016: 10:23 AM</span>  
+                                    <div class="text-center">
+                                        <div class="btn-group" role="group" aria-label="...">
+                                          <button type="button" class="btn btn-default">Approve</button>
+                                          <button type="button" class="btn btn-default">Reject</button>
+                                          <button type="button" class="btn btn-default">Postpone</button>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-item col-sm-6 col-md-2"> 
+                            <div class="grid-inner active">
+                                <div class="patient-image-wrapper">
+                                  <img class="patient-image" src="img/user3.jpg">
+                                </div>
+                                <div class="event patient-data"> 
+                                    <span class="patient-details name">Scott Phoenix</span> 
+                                    <span class="patient-details contact-no">+91 96016 96833</span>
+                                    <span class="patient-details appointment-date-time">30 March 2016: 10:23 AM</span>  
+                                    <div class="text-center">
+                                        <div class="btn-group" role="group" aria-label="...">
+                                          <button type="button" class="btn btn-default">Approve</button>
+                                          <button type="button" class="btn btn-default">Reject</button>
+                                          <button type="button" class="btn btn-default">Postpone</button>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="active-user-details"></div>
+                        </div>
+                        <div class="grid-item col-sm-6 col-md-2"> 
+                            <div class="grid-inner">
+                                <div class="patient-image-wrapper">
+                                  <img class="patient-image" src="img/user4.jpg">
+                                </div>
+                                <div class="event patient-data"> 
+                                    <span class="patient-details name">Mustafa Suleyman</span> 
+                                    <span class="patient-details contact-no">+91 96016 96833</span>
+                                    <span class="patient-details appointment-date-time">30 March 2016: 10:23 AM</span>  
+                                    <div class="text-center">
+                                        <div class="btn-group" role="group" aria-label="...">
+                                          <button type="button" class="btn btn-default">Approve</button>
+                                          <button type="button" class="btn btn-default">Reject</button>
+                                          <button type="button" class="btn btn-default">Postpone</button>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-item col-sm-6 col-md-2"> 
+                            <div class="grid-inner">
+                                <div class="patient-image-wrapper">
+                                  <img class="patient-image" src="img/user5.jpg">
+                                </div>
+                                <div class="event patient-data"> 
+                                    <span class="patient-details name">Alex Depledge</span> 
+                                    <span class="patient-details contact-no">+91 96016 96833</span>
+                                    <span class="patient-details appointment-date-time">30 March 2016: 10:23 AM</span>  
+                                    <div class="text-center">
+                                        <div class="btn-group" role="group" aria-label="...">
+                                          <button type="button" class="btn btn-default">Approve</button>
+                                          <button type="button" class="btn btn-default">Reject</button>
+                                          <button type="button" class="btn btn-default">Postpone</button>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid-item col-sm-6 col-md-2"> 
+                            <div class="grid-inner">
+                                <div class="patient-image-wrapper">
+                                  <img class="patient-image" src="img/user6.jpg">
+                                </div>
+                                <div class="event patient-data"> 
+                                    <span class="patient-details name">Sarah Wood</span> 
+                                    <span class="patient-details contact-no">+91 96016 96833</span>
+                                    <span class="patient-details appointment-date-time">30 March 2016: 10:23 AM</span>  
+                                    <div class="text-center">
+                                        <div class="btn-group" role="group" aria-label="...">
+                                          <button type="button" class="btn btn-default">Approve</button>
+                                          <button type="button" class="btn btn-default">Reject</button>
+                                          <button type="button" class="btn btn-default">Postpone</button>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid-item col-sm-6 col-md-2"> 
+                            <div class="grid-inner">
+                                <div class="patient-image-wrapper">
+                                  <img class="patient-image" src="img/user7.jpg">
+                                </div>
+                                <div class="event patient-data"> 
+                                    <span class="patient-details name">José Neves</span> 
+                                    <span class="patient-details contact-no">+91 96016 96833</span>
+                                    <span class="patient-details appointment-date-time">30 March 2016: 10:23 AM</span>  
+                                    <div class="text-center">
+                                        <div class="btn-group" role="group" aria-label="...">
+                                          <button type="button" class="btn btn-default">Approve</button>
+                                          <button type="button" class="btn btn-default">Reject</button>
+                                          <button type="button" class="btn btn-default">Postpone</button>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid-item col-sm-6 col-md-2"> 
+                            <div class="grid-inner">
+                                <div class="patient-image-wrapper">
+                                  <img class="patient-image" src="img/user8.jpg">
+                                </div>
+                                <div class="event patient-data"> 
+                                    <span class="patient-details name">Emily Brooke</span> 
+                                    <span class="patient-details contact-no">+91 96016 96833</span>
+                                    <span class="patient-details appointment-date-time">30 March 2016: 10:23 AM</span>  
+                                    <div class="text-center">
+                                        <div class="btn-group" role="group" aria-label="...">
+                                          <button type="button" class="btn btn-default">Approve</button>
+                                          <button type="button" class="btn btn-default">Reject</button>
+                                          <button type="button" class="btn btn-default">Postpone</button>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-7" style="padding: 0px;">
+                        <div class="personal-info col-lg-4 pull-left">
+                            <div class="user-image">
+                                <img src="img/user3.jpg" alt="" title="" />
+                            </div>
+                            
+                            <div class="additional-info">
+                                <h1>Scott Phoenix</h1>
+                                <div class="summary-details pull-left">
+                                    <h2>SUMMARY</h2>
+                                    <div class="age pull-left">
+                                        <strong>22</strong>
+                                        <div>Age</div>
+                                    </div>
+                                    <div class="weight pull-left">
+                                        <strong>53 kg</strong>
+                                        <div>Weight</div>
+                                    </div>
+                                    <div class="height pull-left">
+                                        <img src="img/women-height.png" alt="Women Height Measure Icon" title="Women Height Measure Icon"/>
+                                        <div class="height-details pull-left">
+                                            <strong>172 cm</strong>
+                                            <div>Height</div>
+                                        </div>
+                                    </div>
+                                    <div class="bmi pull-left">
+                                        <strong>20.4</strong>
+                                        <div>BMI</div>
+                                    </div>
+                                    <div class="fat pull-left">
+                                        <strong>11 %</strong>
+                                        <div>Fat</div>
+                                    </div>
+                                </div>
+                                <div class="allergies-details pull-left">
+                                    <h2>ALLERGIES</h2>
+                                    <ul>
+                                        <li>
+                                            <span>Peanuts</span>
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:40%;background-color: #c3f8ab;">
+                                                  <span class="sr-only">70% Complete</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span>Penicilin</span>
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%;background-color: #ffb5ab;">
+                                                  <span class="sr-only">70% Complete</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li></li>
+                                    </ul>
+                                </div>
+                                <div class="recent-doctor-details pull-left">
+                                    <h2>Recent Visited Doctor</h2>
+                                    <div class="doctor-list">
+                                        <img src="img/doc1.png" alt="Peter Smith" title="Peter Smith" />
+                                        <div class="doc-details">
+                                            <strong>Peter Smith</strong>
+                                            <div>Dentist (+91 96016 96833)</div>
+                                        </div>
+                                    </div>
+                                    <div class="doctor-list">
+                                        <img src="img/doc2.png" alt="Katarina Rychia" title="Katarina Rychia" />
+                                        <div class="doc-details">
+                                            <strong>Katarina Rychia</strong>
+                                            <div>Dentist (+91 96016 96833)</div>
+                                        </div>
+                                    </div>
+                                    <div class="doctor-list">
+                                        <img src="img/doc3.png" alt="Tereza Dvorska" title="Tereza Dvorska" />
+                                        <div class="doc-details">
+                                            <strong>Tereza Dvorska</strong>
+                                            <div>Physician (+91 96016 96833)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="medical-info col-lg-8 pull-left">
+
+                            
+                            <div class="title"><h1>Health History</h1></div>
+                            
+                            <div class="row features-block">
+                                <div class="col-lg-12">
+                                    <div id="vertical-timeline" class="vertical-container light-timeline center-orientation">
+                                        <div class="vertical-timeline-block">
+                                            <div class="vertical-timeline-icon navy-bg">
+                                                <i class="fa fa-user-md"></i>
+                                            </div>
+
+                                            <div class="vertical-timeline-content">
+                                                <h2>Post Traumatic Stress Disorder</h2>
+                                                <p>
+                                                    Treating Physician: Kathieen Curie-Galen, MD <br/>
+                                                    21-Mar-2016 - Present
+                                                </p>
+                                                <div class="notes">
+                                                    <p>
+                                                        <strong>Notes:</strong>
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec ante venenatis, dictum nibh at, tristique risus. Donec malesuada diam a libero lobortis, ut auctor nulla vehicula. Aliquam at sapien et eros consequat tincidunt. Nulla aliquam suscipit nunc. Aliquam sed pulvinar ex. Curabitur at gravida ligula, eu convallis nunc. Nullam sed ante nec neque porta faucibus ut non sapien.
+                                                    </p>
+                                                </div>
+                                                <span class="vertical-date"> Yesterday <br> <small>Mar 21</small> </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="vertical-timeline-block">
+                                            <div class="vertical-timeline-icon navy-bg">
+                                                <i class="fa fa-user-md"></i>
+                                            </div>
+
+                                            <div class="vertical-timeline-content">
+                                                <h2>Carpel Tunnel Syndrome</h2>
+                                                <p>
+                                                    Treating Physician: Joe Johnson, MD <br/>
+                                                    15-Mar-2016 - Present
+                                                </p>
+                                                <div class="notes">
+                                                    
+                                                    <p>
+                                                        <strong>Notes:</strong>
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec ante venenatis, dictum nibh at, tristique risus. Donec malesuada diam a libero lobortis, ut auctor nulla vehicula. Aliquam at sapien et eros consequat tincidunt. Nulla aliquam suscipit nunc. Aliquam sed pulvinar ex. Curabitur at gravida ligula, eu convallis nunc. Nullam sed ante nec neque porta faucibus ut non sapien.
+                                                    </p>
+                                                </div>
+                                                <!--a href="#" class="btn btn-xs btn-primary"> More info</a-->
+                                                <span class="vertical-date"> Last Week <br> <small>Mar 15</small> </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="vertical-timeline-block">
+                                            <div class="vertical-timeline-icon navy-bg">
+                                                <i class="fa fa-user-md"></i>
+                                            </div>
+
+                                            <div class="vertical-timeline-content">
+                                                <h2>Migraines</h2>
+                                                <p>
+                                                    Treating Physician: Kathleen Curie-Galen, MD <br/>
+                                                    01-Mar-2016 - Present
+                                                </p>
+                                                <div class="notes">
+                                                    
+                                                    <p>
+                                                        <strong>Notes:</strong>
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec ante venenatis, dictum nibh at, tristique risus. Donec malesuada diam a libero lobortis, ut auctor nulla vehicula. Aliquam at sapien et eros consequat tincidunt. Nulla aliquam suscipit nunc. Aliquam sed pulvinar ex. Curabitur at gravida ligula, eu convallis nunc. Nullam sed ante nec neque porta faucibus ut non sapien.
+                                                    </p>
+                                                </div>
+                                                <!--a href="#" class="btn btn-xs btn-primary"> More info</a-->
+                                                <span class="vertical-date"> Last 20 Days <br> <small>Mar 01</small> </span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+
+                    </div>
+                </div>
+
+                <div class="row thumb-view details-view">
+                    <div class="col-lg-10" style="margin-top:20px;display:none;">
+                        <div class="grid-item col-sm-6 col-md-3"> 
+                            <div class="col-bg-white has-shadow has-border"></div> 
+                            <div class="grid-inner event patient-data"> 
+                                <div class="patient-image-wrapper">
+                                  <img class="patient-image" src="img/user1.jpg">
+                                </div>
+                                <span class="patient-details name">Josh Tetrick</span> 
+                                <span class="patient-details contact-no">+91 96016 96833</span>
+                                <span class="patient-details appointment-date-time">30 March 2016: 10:23 AM</span>  
+                            </div>
+                            <div class="text-center">
+                                <div class="btn-group" role="group" aria-label="...">
+                                  <button type="button" class="btn btn-default">Approve</button>
+                                  <button type="button" class="btn btn-default">Reject</button>
+                                  <button type="button" class="btn btn-default">Postpone</button>
+                                </div>  
+                            </div>    
+                        </div>  
+
+                        <div class="grid-item col-sm-6 col-md-3"> 
+                            <div class="col-bg-white has-shadow has-border"></div> 
+                            <div class="grid-inner event patient-data"> 
+                                <div class="patient-image-wrapper">
+                                  <img class="patient-image" src="img/user2.jpg">
+                                </div>
+                                <span class="patient-details name">Brynne Herbert</span> 
+                                <span class="patient-details contact-no">+91 96016 96833</span>
+                                <span class="patient-details appointment-date-time">30 March 2016: 10:23 AM</span>  
+                            </div>
+                            <div class="text-center">
+                                <div class="btn-group" role="group" aria-label="...">
+                                  <button type="button" class="btn btn-default">Approve</button>
+                                  <button type="button" class="btn btn-default">Reject</button>
+                                  <button type="button" class="btn btn-default">Postpone</button>
+                                </div>  
+                            </div>    
+                        </div>
+
+                        <div class="grid-item col-sm-6 col-md-3"> 
+                            <div class="col-bg-white has-shadow has-border"></div> 
+                            <div class="grid-inner event patient-data"> 
+                                <div class="patient-image-wrapper">
+                                  <img class="patient-image" src="img/user3.jpg">
+                                </div>
+                                <span class="patient-details name">Scott Phoenix</span> 
+                                <span class="patient-details contact-no">+91 96016 96833</span>
+                                <span class="patient-details appointment-date-time">30 March 2016: 10:23 AM</span>  
+                            </div>
+                            <div class="text-center">
+                                <div class="btn-group" role="group" aria-label="...">
+                                  <button type="button" class="btn btn-default">Approve</button>
+                                  <button type="button" class="btn btn-default">Reject</button>
+                                  <button type="button" class="btn btn-default">Postpone</button>
+                                </div>  
+                            </div>    
+                        </div>
+
+                        <div class="grid-item col-sm-6 col-md-3"> 
+                            <div class="col-bg-white has-shadow has-border"></div> 
+                            <div class="grid-inner event patient-data"> 
+                                <div class="patient-image-wrapper">
+                                  <img class="patient-image" src="img/user4.jpg">
+                                </div>
+                                <span class="patient-details name">Mustafa Suleyman</span> 
+                                <span class="patient-details contact-no">+91 96016 96833</span>
+                                <span class="patient-details appointment-date-time">30 March 2016: 10:23 AM</span>  
+                            </div>
+                            <div class="text-center">
+                                <div class="btn-group" role="group" aria-label="...">
+                                  <button type="button" class="btn btn-default">Approve</button>
+                                  <button type="button" class="btn btn-default">Reject</button>
+                                  <button type="button" class="btn btn-default">Postpone</button>
+                                </div>  
+                            </div>    
+                        </div>
+
+                        <div class="grid-item col-sm-6 col-md-3"> 
+                            <div class="col-bg-white has-shadow has-border"></div> 
+                            <div class="grid-inner event patient-data"> 
+                                <div class="patient-image-wrapper">
+                                  <img class="patient-image" src="img/user5.jpg">
+                                </div>
+                                <span class="patient-details name">Alex Depledge</span> 
+                                <span class="patient-details contact-no">+91 96016 96833</span>
+                                <span class="patient-details appointment-date-time">30 March 2016: 10:23 AM</span>  
+                            </div>
+                            <div class="text-center">
+                                <div class="btn-group" role="group" aria-label="...">
+                                  <button type="button" class="btn btn-default">Approve</button>
+                                  <button type="button" class="btn btn-default">Reject</button>
+                                  <button type="button" class="btn btn-default">Postpone</button>
+                                </div>  
+                            </div>    
+                        </div>
+
+                        <div class="grid-item col-sm-6 col-md-3"> 
+                            <div class="col-bg-white has-shadow has-border"></div> 
+                            <div class="grid-inner event patient-data"> 
+                                <div class="patient-image-wrapper">
+                                  <img class="patient-image" src="img/user6.jpg">
+                                </div>
+                                <span class="patient-details name">Sarah Wood</span> 
+                                <span class="patient-details contact-no">+91 96016 96833</span>
+                                <span class="patient-details appointment-date-time">30 March 2016: 10:23 AM</span>  
+                            </div>
+                            <div class="text-center">
+                                <div class="btn-group" role="group" aria-label="...">
+                                  <button type="button" class="btn btn-default">Approve</button>
+                                  <button type="button" class="btn btn-default">Reject</button>
+                                  <button type="button" class="btn btn-default">Postpone</button>
+                                </div>  
+                            </div>    
+                        </div>
+
+                        <div class="grid-item col-sm-6 col-md-3"> 
+                            <div class="col-bg-white has-shadow has-border"></div> 
+                            <div class="grid-inner event patient-data"> 
+                                <div class="patient-image-wrapper">
+                                  <img class="patient-image" src="img/user7.jpg">
+                                </div>
+                                <span class="patient-details name">José Neves</span> 
+                                <span class="patient-details contact-no">+91 96016 96833</span>
+                                <span class="patient-details appointment-date-time">30 March 2016: 10:23 AM</span>  
+                            </div>
+                            <div class="text-center">
+                                <div class="btn-group" role="group" aria-label="...">
+                                  <button type="button" class="btn btn-default">Approve</button>
+                                  <button type="button" class="btn btn-default">Reject</button>
+                                  <button type="button" class="btn btn-default">Postpone</button>
+                                </div>  
+                            </div>    
+                        </div>
+
+                        <div class="grid-item col-sm-6 col-md-3"> 
+                            <div class="col-bg-white has-shadow has-border"></div> 
+                            <div class="grid-inner event patient-data"> 
+                                <div class="patient-image-wrapper">
+                                  <img class="patient-image" src="img/user8.jpg">
+                                </div>
+                                <span class="patient-details name">Emily Brooke</span> 
+                                <span class="patient-details contact-no">+91 96016 96833</span>
+                                <span class="patient-details appointment-date-time">30 March 2016: 10:23 AM</span>  
+                            </div>
+                            <div class="text-center">
+                                <div class="btn-group" role="group" aria-label="...">
+                                  <button type="button" class="btn btn-default">Approve</button>
+                                  <button type="button" class="btn btn-default">Reject</button>
+                                  <button type="button" class="btn btn-default">Postpone</button>
+                                </div>  
+                            </div>    
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2"></div>
+                </div>
+
+                <div class="row timeline-view details-view">
+                    <div class="medical-info col-lg-10 pull-left">
+
+                        <div class="col-lg-6 pull-left" style="padding: 0px;">
+                            <div class="weekly-view">
+                                <div class="title"><h1>Current Week (22-Mar-2016 To 15-Mar-2016)</h1></div>
+                                <div class="row features-block">
+                                    <div class="col-lg-12" style="padding: 0px;">
+                                        <div id="vertical-timeline" class="vertical-container light-timeline center-orientation">
+
+                                            <div class="vertical-timeline-block">
+                                                <div class="vertical-timeline-icon navy-bg">
+                                                    <i class="fa fa-user-md"></i>
+                                                </div>
+
+                                                <div class="vertical-timeline-content">
+                                                    <div class="appointment-details"> 
+                                                        <div class="patient-image-wrapper">
+                                                            <img class="patient-image" src="img/user1.jpg">
+                                                        </div>
+                                                    
+                                                        <div class="patient-details">
+                                                            <strong>Josh Tetrick (+91 96016 96833)</strong>
+                                                            <div class="appoint-for">For Dentist</div>
+                                                            <div class="btn-group pull-left" role="group" aria-label="...">
+                                                              <button type="button" class="btn btn-default">Approve</button>
+                                                              <button type="button" class="btn btn-default">Reject</button>
+                                                              <button type="button" class="btn btn-default">Postpone</button>
+                                                            </div>  
+                                                        </div>
+                                                    </div>
+                                                    <span class="vertical-date"> Tomorrow <br> <small>Mar 23, 06:00 PM</small> </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="vertical-timeline-block">
+                                                <div class="vertical-timeline-icon navy-bg">
+                                                    <i class="fa fa-user-md"></i>
+                                                </div>
+
+                                                <div class="vertical-timeline-content">
+                                                    <div class="appointment-details"> 
+                                                        <div class="patient-image-wrapper">
+                                                            <img class="patient-image" src="img/user2.jpg">
+                                                        </div>
+                                                    
+                                                        <div class="patient-details">
+                                                            <strong>Brynne Herbert (+91 96016 96833)</strong>
+                                                            <div class="appoint-for">For Dentist</div>
+                                                            <div class="btn-group pull-left" role="group" aria-label="...">
+                                                              <button type="button" class="btn btn-default">Approve</button>
+                                                              <button type="button" class="btn btn-default">Reject</button>
+                                                              <button type="button" class="btn btn-default">Postpone</button>
+                                                            </div>  
+                                                        </div>
+                                                    </div>
+                                                    <span class="vertical-date"> Tomorrow <br> <small>Mar 23, 02:00 PM</small> </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="vertical-timeline-block">
+                                                <div class="vertical-timeline-icon navy-bg">
+                                                    <i class="fa fa-user-md"></i>
+                                                </div>
+
+                                                <div class="vertical-timeline-content">
+                                                    <div class="appointment-details"> 
+                                                        <div class="patient-image-wrapper">
+                                                            <img class="patient-image" src="img/user3.jpg">
+                                                        </div>
+                                                    
+                                                        <div class="patient-details">
+                                                            <strong>Scott Phoenix (+91 96016 96833)</strong>
+                                                            <div class="appoint-for">For Dentist</div>
+                                                            <div class="btn-group pull-left" role="group" aria-label="...">
+                                                              <button type="button" class="btn btn-default">Approve</button>
+                                                              <button type="button" class="btn btn-default">Reject</button>
+                                                              <button type="button" class="btn btn-default">Postpone</button>
+                                                            </div>  
+                                                        </div>
+                                                    </div>
+                                                    <span class="vertical-date"> Today <br> <small>Mar 22, 06:00 PM</small> </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="vertical-timeline-block">
+                                                <div class="vertical-timeline-icon navy-bg">
+                                                    <i class="fa fa-user-md"></i>
+                                                </div>
+
+                                                <div class="vertical-timeline-content">
+                                                    <div class="appointment-details"> 
+                                                        <div class="patient-image-wrapper">
+                                                            <img class="patient-image" src="img/user4.jpg">
+                                                        </div>
+                                                    
+                                                        <div class="patient-details">
+                                                            <strong>Mustafa Suleyman</strong>
+                                                            <div class="appoint-for">For Dentist</div>
+                                                            <div class="btn-group pull-left" role="group" aria-label="...">
+                                                              <button type="button" class="btn btn-default">Approve</button>
+                                                              <button type="button" class="btn btn-default">Reject</button>
+                                                              <button type="button" class="btn btn-default">Postpone</button>
+                                                            </div>  
+                                                        </div>
+                                                    </div>
+                                                    <span class="vertical-date"> Yesterday <br> <small>Mar 21, 03:00 PM</small> </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="vertical-timeline-block">
+                                                <div class="vertical-timeline-icon navy-bg">
+                                                    <i class="fa fa-user-md"></i>
+                                                </div>
+
+                                                <div class="vertical-timeline-content">
+                                                    <div class="appointment-details"> 
+                                                        <div class="patient-image-wrapper">
+                                                            <img class="patient-image" src="img/user5.jpg">
+                                                        </div>
+                                                    
+                                                        <div class="patient-details">
+                                                            <strong>Alex Depledge</strong>
+                                                            <div class="appoint-for">For Dentist</div>
+                                                            <div class="btn-group pull-left" role="group" aria-label="...">
+                                                              <button type="button" class="btn btn-default">Approve</button>
+                                                              <button type="button" class="btn btn-default">Reject</button>
+                                                              <button type="button" class="btn btn-default">Postpone</button>
+                                                            </div>  
+                                                        </div>
+                                                    </div>
+                                                    <span class="vertical-date"> Last Sat <br> <small>Mar 19, 04:00 PM</small> </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="vertical-timeline-block">
+                                                <div class="vertical-timeline-icon navy-bg">
+                                                    <i class="fa fa-user-md"></i>
+                                                </div>
+
+                                                <div class="vertical-timeline-content">
+                                                    <div class="appointment-details"> 
+                                                        <div class="patient-image-wrapper">
+                                                            <img class="patient-image" src="img/user6.jpg">
+                                                        </div>
+                                                    
+                                                        <div class="patient-details">
+                                                            <strong>Sarah Wood</strong>
+                                                            <div class="appoint-for">For Dentist</div>
+                                                            <div class="btn-group pull-left" role="group" aria-label="...">
+                                                              <button type="button" class="btn btn-default">Approve</button>
+                                                              <button type="button" class="btn btn-default">Reject</button>
+                                                              <button type="button" class="btn btn-default">Postpone</button>
+                                                            </div>  
+                                                        </div>
+                                                    </div>
+                                                    <span class="vertical-date"> Last Fri <br> <small>Mar 18, 10:00 AM</small> </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="vertical-timeline-block">
+                                                <div class="vertical-timeline-icon navy-bg">
+                                                    <i class="fa fa-user-md"></i>
+                                                </div>
+
+                                                <div class="vertical-timeline-content">
+                                                    <div class="appointment-details"> 
+                                                        <div class="patient-image-wrapper">
+                                                            <img class="patient-image" src="img/user7.jpg">
+                                                        </div>
+                                                    
+                                                        <div class="patient-details">
+                                                            <strong>José Neves</strong>
+                                                            <div class="appoint-for">For Dentist</div>
+                                                            <div class="btn-group pull-left" role="group" aria-label="...">
+                                                              <button type="button" class="btn btn-default">Approve</button>
+                                                              <button type="button" class="btn btn-default">Reject</button>
+                                                              <button type="button" class="btn btn-default">Postpone</button>
+                                                            </div>  
+                                                        </div>
+                                                    </div>
+                                                    <span class="vertical-date"> Last Thur <br> <small>Mar 17, 06:00 PM</small> </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="vertical-timeline-block">
+                                                <div class="vertical-timeline-icon navy-bg">
+                                                    <i class="fa fa-user-md"></i>
+                                                </div>
+
+                                                <div class="vertical-timeline-content">
+                                                    <div class="appointment-details"> 
+                                                        <div class="patient-image-wrapper">
+                                                            <img class="patient-image" src="img/user8.jpg">
+                                                        </div>
+                                                    
+                                                        <div class="patient-details">
+                                                            <strong>Emily Brooke</strong>
+                                                            <div class="appoint-for">For Dentist</div>
+                                                            <div class="btn-group pull-left" role="group" aria-label="...">
+                                                              <button type="button" class="btn btn-default">Approve</button>
+                                                              <button type="button" class="btn btn-default">Reject</button>
+                                                              <button type="button" class="btn btn-default">Postpone</button>
+                                                            </div>  
+                                                        </div>
+                                                    </div>
+                                                    <span class="vertical-date"> Last Wed <br> <small>Mar 16, 05:30 PM</small> </span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+
+                        
+                        <div class="col-lg-6 pull-left" style="padding: 0px;">
+                            <div class="weekly-view">
+                                <div class="title"><h1>Current Week (22-Mar-2016 To 15-Mar-2016)</h1></div>
+                                <div class="row features-block">
+                                    <div class="col-lg-12" style="padding: 0px;">
+                                        <div id="vertical-timeline" class="vertical-container light-timeline center-orientation">
+
+                                            <div class="vertical-timeline-block">
+                                                <div class="vertical-timeline-icon navy-bg">
+                                                    <i class="fa fa-user-md"></i>
+                                                </div>
+
+                                                <div class="vertical-timeline-content">
+                                                    <div class="appointment-details"> 
+                                                        <div class="patient-image-wrapper">
+                                                            <img class="patient-image" src="img/user1.jpg">
+                                                        </div>
+                                                    
+                                                        <div class="patient-details">
+                                                            <strong>Josh Tetrick (+91 96016 96833)</strong>
+                                                            <div class="appoint-for">For Dentist</div>
+                                                            <div class="btn-group pull-left" role="group" aria-label="...">
+                                                              <button type="button" class="btn btn-default">Approve</button>
+                                                              <button type="button" class="btn btn-default">Reject</button>
+                                                              <button type="button" class="btn btn-default">Postpone</button>
+                                                            </div>  
+                                                        </div>
+                                                    </div>
+                                                    <span class="vertical-date"> Tomorrow <br> <small>Mar 23, 06:00 PM</small> </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="vertical-timeline-block">
+                                                <div class="vertical-timeline-icon navy-bg">
+                                                    <i class="fa fa-user-md"></i>
+                                                </div>
+
+                                                <div class="vertical-timeline-content">
+                                                    <div class="appointment-details"> 
+                                                        <div class="patient-image-wrapper">
+                                                            <img class="patient-image" src="img/user2.jpg">
+                                                        </div>
+                                                    
+                                                        <div class="patient-details">
+                                                            <strong>Brynne Herbert (+91 96016 96833)</strong>
+                                                            <div class="appoint-for">For Dentist</div>
+                                                            <div class="btn-group pull-left" role="group" aria-label="...">
+                                                              <button type="button" class="btn btn-default">Approve</button>
+                                                              <button type="button" class="btn btn-default">Reject</button>
+                                                              <button type="button" class="btn btn-default">Postpone</button>
+                                                            </div>  
+                                                        </div>
+                                                    </div>
+                                                    <span class="vertical-date"> Tomorrow <br> <small>Mar 23, 02:00 PM</small> </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="vertical-timeline-block">
+                                                <div class="vertical-timeline-icon navy-bg">
+                                                    <i class="fa fa-user-md"></i>
+                                                </div>
+
+                                                <div class="vertical-timeline-content">
+                                                    <div class="appointment-details"> 
+                                                        <div class="patient-image-wrapper">
+                                                            <img class="patient-image" src="img/user3.jpg">
+                                                        </div>
+                                                    
+                                                        <div class="patient-details">
+                                                            <strong>Scott Phoenix (+91 96016 96833)</strong>
+                                                            <div class="appoint-for">For Dentist</div>
+                                                            <div class="btn-group pull-left" role="group" aria-label="...">
+                                                              <button type="button" class="btn btn-default">Approve</button>
+                                                              <button type="button" class="btn btn-default">Reject</button>
+                                                              <button type="button" class="btn btn-default">Postpone</button>
+                                                            </div>  
+                                                        </div>
+                                                    </div>
+                                                    <span class="vertical-date"> Today <br> <small>Mar 22, 06:00 PM</small> </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="vertical-timeline-block">
+                                                <div class="vertical-timeline-icon navy-bg">
+                                                    <i class="fa fa-user-md"></i>
+                                                </div>
+
+                                                <div class="vertical-timeline-content">
+                                                    <div class="appointment-details"> 
+                                                        <div class="patient-image-wrapper">
+                                                            <img class="patient-image" src="img/user4.jpg">
+                                                        </div>
+                                                    
+                                                        <div class="patient-details">
+                                                            <strong>Mustafa Suleyman</strong>
+                                                            <div class="appoint-for">For Dentist</div>
+                                                            <div class="btn-group pull-left" role="group" aria-label="...">
+                                                              <button type="button" class="btn btn-default">Approve</button>
+                                                              <button type="button" class="btn btn-default">Reject</button>
+                                                              <button type="button" class="btn btn-default">Postpone</button>
+                                                            </div>  
+                                                        </div>
+                                                    </div>
+                                                    <span class="vertical-date"> Yesterday <br> <small>Mar 21, 03:00 PM</small> </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="vertical-timeline-block">
+                                                <div class="vertical-timeline-icon navy-bg">
+                                                    <i class="fa fa-user-md"></i>
+                                                </div>
+
+                                                <div class="vertical-timeline-content">
+                                                    <div class="appointment-details"> 
+                                                        <div class="patient-image-wrapper">
+                                                            <img class="patient-image" src="img/user5.jpg">
+                                                        </div>
+                                                    
+                                                        <div class="patient-details">
+                                                            <strong>Alex Depledge</strong>
+                                                            <div class="appoint-for">For Dentist</div>
+                                                            <div class="btn-group pull-left" role="group" aria-label="...">
+                                                              <button type="button" class="btn btn-default">Approve</button>
+                                                              <button type="button" class="btn btn-default">Reject</button>
+                                                              <button type="button" class="btn btn-default">Postpone</button>
+                                                            </div>  
+                                                        </div>
+                                                    </div>
+                                                    <span class="vertical-date"> Last Sat <br> <small>Mar 19, 04:00 PM</small> </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="vertical-timeline-block">
+                                                <div class="vertical-timeline-icon navy-bg">
+                                                    <i class="fa fa-user-md"></i>
+                                                </div>
+
+                                                <div class="vertical-timeline-content">
+                                                    <div class="appointment-details"> 
+                                                        <div class="patient-image-wrapper">
+                                                            <img class="patient-image" src="img/user6.jpg">
+                                                        </div>
+                                                    
+                                                        <div class="patient-details">
+                                                            <strong>Sarah Wood</strong>
+                                                            <div class="appoint-for">For Dentist</div>
+                                                            <div class="btn-group pull-left" role="group" aria-label="...">
+                                                              <button type="button" class="btn btn-default">Approve</button>
+                                                              <button type="button" class="btn btn-default">Reject</button>
+                                                              <button type="button" class="btn btn-default">Postpone</button>
+                                                            </div>  
+                                                        </div>
+                                                    </div>
+                                                    <span class="vertical-date"> Last Fri <br> <small>Mar 18, 10:00 AM</small> </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="vertical-timeline-block">
+                                                <div class="vertical-timeline-icon navy-bg">
+                                                    <i class="fa fa-user-md"></i>
+                                                </div>
+
+                                                <div class="vertical-timeline-content">
+                                                    <div class="appointment-details"> 
+                                                        <div class="patient-image-wrapper">
+                                                            <img class="patient-image" src="img/user7.jpg">
+                                                        </div>
+                                                    
+                                                        <div class="patient-details">
+                                                            <strong>José Neves</strong>
+                                                            <div class="appoint-for">For Dentist</div>
+                                                            <div class="btn-group pull-left" role="group" aria-label="...">
+                                                              <button type="button" class="btn btn-default">Approve</button>
+                                                              <button type="button" class="btn btn-default">Reject</button>
+                                                              <button type="button" class="btn btn-default">Postpone</button>
+                                                            </div>  
+                                                        </div>
+                                                    </div>
+                                                    <span class="vertical-date"> Last Thur <br> <small>Mar 17, 06:00 PM</small> </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="vertical-timeline-block">
+                                                <div class="vertical-timeline-icon navy-bg">
+                                                    <i class="fa fa-user-md"></i>
+                                                </div>
+
+                                                <div class="vertical-timeline-content">
+                                                    <div class="appointment-details"> 
+                                                        <div class="patient-image-wrapper">
+                                                            <img class="patient-image" src="img/user8.jpg">
+                                                        </div>
+                                                    
+                                                        <div class="patient-details">
+                                                            <strong>Emily Brooke</strong>
+                                                            <div class="appoint-for">For Dentist</div>
+                                                            <div class="btn-group pull-left" role="group" aria-label="...">
+                                                              <button type="button" class="btn btn-default">Approve</button>
+                                                              <button type="button" class="btn btn-default">Reject</button>
+                                                              <button type="button" class="btn btn-default">Postpone</button>
+                                                            </div>  
+                                                        </div>
+                                                    </div>
+                                                    <span class="vertical-date"> Last Wed <br> <small>Mar 16, 05:30 PM</small> </span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <script src="js/vendor/jquery-1.12.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <!--script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script-->
+    </body>
+</html>
